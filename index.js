@@ -3,7 +3,7 @@ var notifier = new NotifySend();
 var CronJob = require('cron').CronJob;
 var id = 0;
 
-new CronJob('* * * * * *', function() {
+new CronJob('00 */15 * * * *', function() {
   id++;
   var now = new Date();
   var dateStr = now.getDate() + "." + ( now.getMonth() + 1 ) + ".";
@@ -14,6 +14,7 @@ new CronJob('* * * * * *', function() {
     'message': '15 minutes passed. I take a break!',
     //'icon': __dirname + '/coulson.jpg',
     //Uses logo of atom text editor (require atom installed)
-    'icon': '/usr/share/icons/hicolor/128x128/apps/atom.png'
+    'icon': '/usr/share/icons/hicolor/128x128/apps/atom.png',
+    'urgency': 'critical'
   });
 }, null, true, 'Europe/Kiev');
